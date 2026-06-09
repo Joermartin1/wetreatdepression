@@ -1,1 +1,312 @@
-wetreatdepression placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeTreatDepression.com</title>
+  <meta name="description" content="A domain for those building better mental health care.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dawn:   #F7F4F0;
+      --slate:  #2D3E50;
+      --sage:   #6B9E8A;
+      --mist:   #C8DDD6;
+      --amber:  #C17D3C;
+      --body:   #5A6472;
+      --light:  #8A96A2;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--dawn);
+      color: var(--slate);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── BREATHING CIRCLE ── */
+    .breath-wrap {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .breath-circle {
+      width: min(70vw, 560px);
+      height: min(70vw, 560px);
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 38%,
+        rgba(107,158,138,0.13) 0%,
+        rgba(200,221,214,0.07) 55%,
+        transparent 75%);
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50%       { transform: scale(1.06); opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .breath-circle { animation: none; }
+    }
+
+    /* ── LAYOUT ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(60px, 12vw, 120px) clamp(24px, 6vw, 80px);
+      gap: 0;
+    }
+
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 32px;
+    }
+
+    .domain {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6.5vw, 72px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--slate);
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+
+    .domain span {
+      color: var(--sage);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1.5px;
+      background: var(--mist);
+      margin: 0 auto 32px;
+    }
+
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(18px, 2.8vw, 26px);
+      font-weight: 400;
+      color: var(--body);
+      line-height: 1.55;
+      max-width: 560px;
+      margin-bottom: 20px;
+    }
+
+    .sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--light);
+      line-height: 1.7;
+      max-width: 440px;
+    }
+
+    /* ── STAT ROW ── */
+    .stats {
+      display: flex;
+      gap: clamp(32px, 6vw, 72px);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      padding-top: 48px;
+      border-top: 1px solid var(--mist);
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 600;
+      color: var(--slate);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    /* ── FOOTER / ACQUIRE ── */
+    footer {
+      border-top: 1px solid var(--mist);
+      padding: clamp(28px, 4vw, 44px) clamp(24px, 6vw, 80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      background: rgba(255,255,255,0.45);
+    }
+
+    .footer-left {
+      font-size: 13px;
+      color: var(--light);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .footer-left strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--body);
+      margin-bottom: 4px;
+    }
+
+    .acquire-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--amber);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .acquire-btn:hover {
+      background: #a8692e;
+      transform: translateY(-1px);
+    }
+
+    .acquire-btn:focus-visible {
+      outline: 2px solid var(--amber);
+      outline-offset: 3px;
+    }
+
+    .acquire-btn svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.85;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .acquire-btn { width: 100%; justify-content: center; }
+      .stats { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Breathing circle — ambient background element -->
+  <div class="breath-wrap" aria-hidden="true">
+    <div class="breath-circle"></div>
+  </div>
+
+  <div class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="eyebrow">A domain with purpose</p>
+
+      <h1 class="domain">
+        WeTreat<span>Depression</span>.com
+      </h1>
+
+      <div class="divider"></div>
+
+      <p class="tagline">
+        The right address for the team<br>
+        building something that genuinely helps.
+      </p>
+
+      <p class="sub">
+        Depression affects 280 million people worldwide.
+        The organizations closing that gap deserve a name people remember.
+      </p>
+
+      <!-- Stat row -->
+      <div class="stats" aria-label="Context">
+        <div class="stat">
+          <div class="stat-num">280M</div>
+          <div class="stat-label">People affected globally</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">#1</div>
+          <div class="stat-label">Cause of disability worldwide</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">75%</div>
+          <div class="stat-label">Receive no treatment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / ACQUIRE -->
+    <footer>
+      <div class="footer-left">
+        <strong>Domain Available</strong>
+        WeTreatDepression.com is available for acquisition.<br>
+        Inquiries from telehealth, therapy, and mental health organizations welcome.
+      </div>
+
+      <a class="acquire-btn"
+         href="mailto:kristi@kristischiller.com?subject=WeTreatDepression.com%20—%20Acquisition%20Inquiry&body=Hello%2C%0A%0AI'm%20interested%20in%20acquiring%20WeTreatDepression.com.%20Please%20send%20details.%0A%0AName%3A%0AOrganization%3A%0AOffer%3A"
+         aria-label="Send an acquisition inquiry for WeTreatDepression.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Inquire About This Domain
+      </a>
+    </footer>
+
+  </div>
+
+</body>
+</html>
